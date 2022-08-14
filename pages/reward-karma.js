@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ArDB from 'ardb';
 import Arweave from 'arweave';
-
+ 
 
 const arweave = Arweave.init({});
 const ardb = new ArDB(arweave);
-const wallet = JSON.stringify(process.env.ARWEAVE_WALLET)
+const wallet = (process.env.ARWEAVE_WALLET)
+
 
 
 const rew = () => {
