@@ -5,7 +5,7 @@ import Arweave from 'arweave';
 
 const arweave = Arweave.init({});
 const ardb = new ArDB(arweave);
-const wallet = (process.env.ARWEAVE_WALLET)
+const wallet = (process.env.ARWEAVE_ISHAN_WALLET)
 
 
 
