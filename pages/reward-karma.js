@@ -22,15 +22,19 @@ const rew = () => {
    
     const reward= async (event)=>{
         event.preventDefault();
-        //const txs = await ardb.search('transactions').tag(address, 'Dao_Karma').limit(1).find();
-        const karmas = event.target.karma.value
-        console.log(karmas);
-
         const address = event.target.addresso
+        const txs = await ardb.search('transactions').tag('Address', address).limit(1).find();
+        console.log(txs)
+        const txe = new_txs.Transaction.map(x=>x.id)
+        console.log(txe)
+        const nos = arweave.transactions.get(txd)
+        console.log(nos)
+        const karmas =event.target.karma.value+nos
+        console.log(karmas);
         const transaction = await arweave.createTransaction({data: karmas}, key);
         console.log( transaction)
-
         const DAO_Karma = "DAO_Karmas"
+        
         transaction.addTag('App-Name', DAO_Karma);
         transaction.addTag('Address', address)
 
@@ -40,7 +44,10 @@ const rew = () => {
         console.log('Transaction signed successfully')
 
         const new_txs=await ardb.search('transactions').tag('Address', address).limit(1).find();
-        console.log(new_txs)
+        const txd = new_txs.Transaction.map(x=>x.id)
+        console.log(txd)
+        const no = arweave.transactions.get(txd)
+        console.log(no)
     }
     
     return(
